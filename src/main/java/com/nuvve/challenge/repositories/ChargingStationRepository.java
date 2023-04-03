@@ -15,5 +15,5 @@ public interface ChargingStationRepository extends JpaRepository<ChargingStation
 
     @Query(value = "SELECT a FROM ChargingStationEntity AS a " +
             "WHERE a.idCS = :idCS AND a.idVehicle = :idVehicle AND a.state = 'busy'")
-    Optional<ChargingStationEntity> findCSBusy(Integer idVehicle, Integer idCS);
+    Optional<ChargingStationEntity> findCSBusy(Integer idCS, Integer idVehicle);
 }
