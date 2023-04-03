@@ -13,12 +13,12 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "vehicules")
-public class VehiculeEntity {
+@Table(name = "vehicles")
+public class VehicleEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_vehicule")
-    private Integer idVehicule;
+    @Column(name = "id_vehicle")
+    private Integer idVehicle;
 
     @Column(name = "id_user") //TODO id
     private Integer idUser;
@@ -26,7 +26,7 @@ public class VehiculeEntity {
     @Column(name = "battery")
     private Integer battery;
 
-    @Column(name = "next_ditance") //TODO
+    @Column(name = "next_distance") //TODO
     private Integer nextDistance;
 
     @Column(name = "scheduled_time")//TODO

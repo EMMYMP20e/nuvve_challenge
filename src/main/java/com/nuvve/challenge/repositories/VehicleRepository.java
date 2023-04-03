@@ -1,12 +1,10 @@
 package com.nuvve.challenge.repositories;
 
-import com.nuvve.challenge.entities.VehiculeEntity;
-import com.nuvve.challenge.models.Vehicle;
+import com.nuvve.challenge.entities.VehicleEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import java.util.Optional;
 
-public interface VehicleRepository extends JpaRepository<VehiculeEntity, Integer> {
+public interface VehicleRepository extends JpaRepository<VehicleEntity, Integer> {
 
 
 }
