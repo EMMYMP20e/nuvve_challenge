@@ -17,9 +17,7 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class VehicleService {
     private final VehicleRepository vehicleRepository;
-    private final ChargingStationRepository chargingStationRepository;
     private final VehicleMapper vehicleMapper;
-    private final ChargingStationMapper chargingStationMapper;
     public List<Vehicle> getAll(){
         return vehicleRepository.findAll().stream().map(vehicleMapper::toVehicle).collect(Collectors.toList());
     }
@@ -29,7 +27,7 @@ public class VehicleService {
     }
 
     public Vehicle update(Vehicle vehicle){
-         vehicleRepository.findById(vehicle.getIdVehicle())//and user
+         vehicleRepository.findById(vehicle.getIdVehicle())
                  .orElseThrow(() -> new EmptyResultDataAccessException(
                          String.format("Error updating vehicle with id %d: Vehicle not found",vehicle.getIdVehicle()), 1
                  ));
@@ -38,26 +36,10 @@ public class VehicleService {
 
     public boolean delete(Integer id){
         try {
-            vehicleRepository.deleteById(id);//and user
+            vehicleRepository.deleteById(id);
             return true;
         } catch (EmptyResultDataAccessException e) {
             return false;
         }
     }
-
-    public ChargingStation v2g(Integer vehicleId, Integer csId){
-        vehicleRepository.findById(vehicleId)//and user
-                .orElseThrow(() -> new EmptyResultDataAccessException(
-                        String.format("Error updating vehicle with id %d: Vehicle not found",vehicleId), 1
-                ));
-        var cs = chargingStationRepository.findCSAvailable(csId)
-                .orElseThrow(() -> new EmptyResultDataAccessException(
-                        String.format("Error updating charging station with id %d: Charging Station not found or not available",csId), 1
-                ));
-        cs.setIdVehicle(vehicleId);
-        cs.setState("busy");
-        return chargingStationMapper.toChargingStation(chargingStationRepository.save(cs));
-    }
-
-
  }

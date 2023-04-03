@@ -1,0 +1,175 @@
+{
+	"info": {
+		"_postman_id": "a4fb077b-307e-4a88-8145-bd4c935b5455",
+		"name": "nuvve-aws",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13085579"
+	},
+	"item": [
+		{
+			"name": "health",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://ec2-ecommerce-elb-783928677.us-west-2.elb.amazonaws.com/api/actuator/health",
+					"protocol": "http",
+					"host": [
+						"ec2-ecommerce-elb-783928677",
+						"us-west-2",
+						"elb",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"api",
+						"actuator",
+						"health"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "all",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://ec2-ecommerce-elb-783928677.us-west-2.elb.amazonaws.com/api/vehicle/all",
+					"protocol": "http",
+					"host": [
+						"ec2-ecommerce-elb-783928677",
+						"us-west-2",
+						"elb",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"api",
+						"vehicle",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"idUser\": 1,\r\n        \"battery\": 100,\r\n        \"nextDistance\": null,\r\n        \"scheduledTime\": null,\r\n        \"state\": \"xD\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://ec2-ecommerce-elb-783928677.us-west-2.elb.amazonaws.com/api/vehicle/save",
+					"protocol": "http",
+					"host": [
+						"ec2-ecommerce-elb-783928677",
+						"us-west-2",
+						"elb",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"api",
+						"vehicle",
+						"save"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "v2g",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"csId\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://ec2-ecommerce-elb-783928677.us-west-2.elb.amazonaws.com/api/vehicle/1/v2g",
+					"protocol": "http",
+					"host": [
+						"ec2-ecommerce-elb-783928677",
+						"us-west-2",
+						"elb",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"api",
+						"vehicle",
+						"1",
+						"v2g"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idVehicule\": 1,\r\n        \"idUser\": 1,\r\n        \"battery\": 100,\r\n        \"nextDistance\": null,\r\n        \"scheduledTime\": null,\r\n        \"state\": \"xD\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8090/api/vehicle/update",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"api",
+						"vehicle",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8090/api/vehicle/delete/3",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"api",
+						"vehicle",
+						"delete",
+						"3"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
