@@ -1,5 +1,6 @@
 package com.nuvve.challenge.controller;
 
+import com.nuvve.challenge.models.ChargingStation;
 import com.nuvve.challenge.models.Vehicle;
 import com.nuvve.challenge.services.VehicleService;
 import io.swagger.annotations.ApiOperation;
@@ -13,7 +14,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/vehicle")
-public class VehicleController{
+public class VehicleController {
     @Autowired
     private VehicleService vehicleService;
 
@@ -25,16 +26,15 @@ public class VehicleController{
 
     @PostMapping("/save")
     @ApiResponse(code = 200, message = "OK")
-    public ResponseEntity<Vehicle> save(@RequestBody Vehicle vehicle){
-        return new ResponseEntity<>(vehicleService.create(vehicle),  HttpStatus.CREATED);
+    public ResponseEntity<Vehicle> save(@RequestBody Vehicle vehicle) {
+        return new ResponseEntity<>(vehicleService.create(vehicle), HttpStatus.CREATED);
     }
 
     @PutMapping("/update")
     public ResponseEntity update(@RequestBody Vehicle vehicle) {
-        try{
-            return new ResponseEntity<>(vehicleService.update(vehicle),  HttpStatus.OK);
-        }
-        catch (Exception ex){
+        try {
+            return new ResponseEntity<>(vehicleService.update(vehicle), HttpStatus.OK);
+        } catch (Exception ex) {
             return new ResponseEntity(HttpStatus.NOT_FOUND);
         }
     }
@@ -47,4 +47,13 @@ public class VehicleController{
         return new ResponseEntity(HttpStatus.NOT_FOUND);
     }
 
+    @PostMapping("/{id}/v2g")
+    @ApiResponse(code = 200, message = "OK")
+    public ResponseEntity<ChargingStation> v2g(@PathVariable("id") Integer vehicleId, @RequestBody ChargingStation cs) {
+        try {
+            return new ResponseEntity<>(vehicleService.v2g(vehicleId, cs.getIdCS()), HttpStatus.OK);
+        } catch (Exception ex) {
+            return new ResponseEntity(HttpStatus.NOT_FOUND);
+        }
+    }
 }

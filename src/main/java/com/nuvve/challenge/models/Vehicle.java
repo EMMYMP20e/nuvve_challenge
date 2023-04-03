@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 @Builder
 @Value
 public class Vehicle {
-    private Integer idVehicule;
+    private Integer idVehicle;
 
     private Integer idUser;
 

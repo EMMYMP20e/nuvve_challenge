@@ -20,7 +20,7 @@ public class VehicleEntity {
     @Column(name = "id_vehicle")
     private Integer idVehicle;
 
-    @Column(name = "id_user") //TODO id
+    @Column(name = "id_user")
     private Integer idUser;
 
     @Column(name = "battery")

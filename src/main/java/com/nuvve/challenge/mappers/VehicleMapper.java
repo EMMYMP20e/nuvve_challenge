@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 public class VehicleMapper {
     public Vehicle toVehicle(VehicleEntity entity){
         return Vehicle.builder()
-                .idVehicule(entity.getIdVehicle())
+                .idVehicle(entity.getIdVehicle())
                 .idUser(entity.getIdUser())
                 .battery(entity.getBattery())
                 .nextDistance(entity.getNextDistance())
@@ -20,7 +20,7 @@ public class VehicleMapper {
     }
     public VehicleEntity toVehicleEntity (Vehicle vehicle){
         return VehicleEntity.builder()
-                .idVehicle(vehicle.getIdVehicule())
+                .idVehicle(vehicle.getIdVehicle())
                 .idUser(vehicle.getIdUser())
                 .battery(vehicle.getBattery())
                 .nextDistance(vehicle.getNextDistance())
