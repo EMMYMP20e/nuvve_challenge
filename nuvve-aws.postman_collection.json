@@ -55,13 +55,37 @@
 			"response": []
 		},
 		{
+			"name": "all grids",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://ec2-ecommerce-elb-783928677.us-west-2.elb.amazonaws.com/api/vehicle/all-grids",
+					"protocol": "http",
+					"host": [
+						"ec2-ecommerce-elb-783928677",
+						"us-west-2",
+						"elb",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"api",
+						"vehicle",
+						"all-grids"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "create",
 			"request": {
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n        \"idUser\": 1,\r\n        \"battery\": 100,\r\n        \"nextDistance\": null,\r\n        \"scheduledTime\": null,\r\n        \"state\": \"xD\"\r\n}",
+					"raw": "{\r\n        \"idUser\": 1,\r\n        \"battery\": 100,\r\n        \"nextDistance\": null,\r\n        \"scheduledTime\": null,\r\n        \"state\": \"outside of grid\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -94,7 +118,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"csId\": 1\r\n}",
+					"raw": "{\r\n    \"idCS\": 1\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -102,7 +126,41 @@
 					}
 				},
 				"url": {
-					"raw": "http://ec2-ecommerce-elb-783928677.us-west-2.elb.amazonaws.com/api/vehicle/1/v2g",
+					"raw": "http://ec2-ecommerce-elb-783928677.us-west-2.elb.amazonaws.com/api/vehicle/2/v2g",
+					"protocol": "http",
+					"host": [
+						"ec2-ecommerce-elb-783928677",
+						"us-west-2",
+						"elb",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"api",
+						"vehicle",
+						"2",
+						"v2g"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "disconnect",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idCS\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://ec2-ecommerce-elb-783928677.us-west-2.elb.amazonaws.com/api/vehicle/1/disconnect",
 					"protocol": "http",
 					"host": [
 						"ec2-ecommerce-elb-783928677",
@@ -115,7 +173,7 @@
 						"api",
 						"vehicle",
 						"1",
-						"v2g"
+						"disconnect"
 					]
 				}
 			},
@@ -128,7 +186,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"idVehicule\": 1,\r\n        \"idUser\": 1,\r\n        \"battery\": 100,\r\n        \"nextDistance\": null,\r\n        \"scheduledTime\": null,\r\n        \"state\": \"xD\"\r\n}",
+					"raw": "{\r\n    \"idVehicle\": 1,\r\n        \"idUser\": 1,\r\n        \"battery\": 100,\r\n        \"nextDistance\": null,\r\n        \"scheduledTime\": null,\r\n        \"state\": \"charging\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -136,11 +194,15 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:8090/api/vehicle/update",
+					"raw": "http://ec2-ecommerce-elb-783928677.us-west-2.elb.amazonaws.com/api/vehicle/update",
+					"protocol": "http",
 					"host": [
-						"localhost"
+						"ec2-ecommerce-elb-783928677",
+						"us-west-2",
+						"elb",
+						"amazonaws",
+						"com"
 					],
-					"port": "8090",
 					"path": [
 						"api",
 						"vehicle",
@@ -156,11 +218,15 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "localhost:8090/api/vehicle/delete/3",
+					"raw": "http://ec2-ecommerce-elb-783928677.us-west-2.elb.amazonaws.com/api/vehicle/delete/3",
+					"protocol": "http",
 					"host": [
-						"localhost"
+						"ec2-ecommerce-elb-783928677",
+						"us-west-2",
+						"elb",
+						"amazonaws",
+						"com"
 					],
-					"port": "8090",
 					"path": [
 						"api",
 						"vehicle",
